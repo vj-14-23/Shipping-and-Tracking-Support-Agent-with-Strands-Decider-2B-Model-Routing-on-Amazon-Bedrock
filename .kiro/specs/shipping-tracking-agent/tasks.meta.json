@@ -1,0 +1,420 @@
+{
+  "pbtResults": {},
+  "executionHistory": {
+    "1.1 Define `TrackingEvent`, `Shipment`, `Address`, and `AddressChangeResult` dataclasses in `agent/models.py`": [
+      {
+        "executionId": "0c31787e-a2d0-4802-bc3e-01807ff7335c",
+        "chatSessionId": "sess_a1aab051-b506-4737-8fe4-e59204ab147e",
+        "timestamp": 1792600555441
+      },
+      {
+        "executionId": "0c31787e-a2d0-4802-bc3e-01807ff7335c",
+        "chatSessionId": "sess_a1aab051-b506-4737-8fe4-e59204ab147e",
+        "timestamp": 1792600565936
+      },
+      {
+        "executionId": "7989d165-22ec-469f-98e5-9d8b210ef593",
+        "chatSessionId": "sess_a1aab051-b506-4737-8fe4-e59204ab147e",
+        "timestamp": 1792601366686
+      }
+    ],
+    "1.3 Implement `CarrierClient` abstract base class and provider registry in `agent/carrier.py`": [
+      {
+        "executionId": "0c31787e-a2d0-4802-bc3e-01807ff7335c",
+        "chatSessionId": "sess_a1aab051-b506-4737-8fe4-e59204ab147e",
+        "timestamp": 1792600555693
+      },
+      {
+        "executionId": "0c31787e-a2d0-4802-bc3e-01807ff7335c",
+        "chatSessionId": "sess_a1aab051-b506-4737-8fe4-e59204ab147e",
+        "timestamp": 1792600569829
+      },
+      {
+        "executionId": "7989d165-22ec-469f-98e5-9d8b210ef593",
+        "chatSessionId": "sess_a1aab051-b506-4737-8fe4-e59204ab147e",
+        "timestamp": 1792601371784
+      },
+      {
+        "executionId": "ccd9e9f9-58e6-411f-8e93-0999ed4093c5",
+        "chatSessionId": "sess_a1aab051-b506-4737-8fe4-e59204ab147e",
+        "timestamp": 1792680584952
+      }
+    ],
+    "1.4 Implement stub carrier clients for EasyPost, ShipEngine, and AfterShip in `agent/carrier.py`": [
+      {
+        "executionId": "0c31787e-a2d0-4802-bc3e-01807ff7335c",
+        "chatSessionId": "sess_a1aab051-b506-4737-8fe4-e59204ab147e",
+        "timestamp": 1792600555826
+      },
+      {
+        "executionId": "ccd9e9f9-58e6-411f-8e93-0999ed4093c5",
+        "chatSessionId": "sess_a1aab051-b506-4737-8fe4-e59204ab147e",
+        "timestamp": 1792680597164
+      },
+      {
+        "executionId": "ccd9e9f9-58e6-411f-8e93-0999ed4093c5",
+        "chatSessionId": "sess_a1aab051-b506-4737-8fe4-e59204ab147e",
+        "timestamp": 1792681954349
+      }
+    ],
+    "2.1 Implement `SessionStore` in `agent/session.py`": [
+      {
+        "executionId": "0c31787e-a2d0-4802-bc3e-01807ff7335c",
+        "chatSessionId": "sess_a1aab051-b506-4737-8fe4-e59204ab147e",
+        "timestamp": 1792600555940
+      },
+      {
+        "executionId": "ccd9e9f9-58e6-411f-8e93-0999ed4093c5",
+        "chatSessionId": "sess_a1aab051-b506-4737-8fe4-e59204ab147e",
+        "timestamp": 1792680597696
+      },
+      {
+        "executionId": "ccd9e9f9-58e6-411f-8e93-0999ed4093c5",
+        "chatSessionId": "sess_a1aab051-b506-4737-8fe4-e59204ab147e",
+        "timestamp": 1792681954639
+      }
+    ],
+    "3. Checkpoint — ensure data layer tests pass": [
+      {
+        "executionId": "0c31787e-a2d0-4802-bc3e-01807ff7335c",
+        "chatSessionId": "sess_a1aab051-b506-4737-8fe4-e59204ab147e",
+        "timestamp": 1792600556024
+      },
+      {
+        "executionId": "8f11bd30-5764-4aca-97e8-fe03a3e3f310",
+        "chatSessionId": "sess_a1aab051-b506-4737-8fe4-e59204ab147e",
+        "timestamp": 1792683456639
+      },
+      {
+        "executionId": "8f11bd30-5764-4aca-97e8-fe03a3e3f310",
+        "chatSessionId": "sess_a1aab051-b506-4737-8fe4-e59204ab147e",
+        "timestamp": 1792683478105
+      }
+    ],
+    "4.1 Implement read-only carrier tools in `agent/tools.py`": [
+      {
+        "executionId": "0c31787e-a2d0-4802-bc3e-01807ff7335c",
+        "chatSessionId": "sess_a1aab051-b506-4737-8fe4-e59204ab147e",
+        "timestamp": 1792600556092
+      },
+      {
+        "executionId": "8f11bd30-5764-4aca-97e8-fe03a3e3f310",
+        "chatSessionId": "sess_a1aab051-b506-4737-8fe4-e59204ab147e",
+        "timestamp": 1792683485248
+      },
+      {
+        "executionId": "8f11bd30-5764-4aca-97e8-fe03a3e3f310",
+        "chatSessionId": "sess_a1aab051-b506-4737-8fe4-e59204ab147e",
+        "timestamp": 1792684019982
+      }
+    ],
+    "4.2 Implement damage-report tool in `agent/tools.py`": [
+      {
+        "executionId": "0c31787e-a2d0-4802-bc3e-01807ff7335c",
+        "chatSessionId": "sess_a1aab051-b506-4737-8fe4-e59204ab147e",
+        "timestamp": 1792600556155
+      },
+      {
+        "executionId": "8f11bd30-5764-4aca-97e8-fe03a3e3f310",
+        "chatSessionId": "sess_a1aab051-b506-4737-8fe4-e59204ab147e",
+        "timestamp": 1792683485712
+      },
+      {
+        "executionId": "8f11bd30-5764-4aca-97e8-fe03a3e3f310",
+        "chatSessionId": "sess_a1aab051-b506-4737-8fe4-e59204ab147e",
+        "timestamp": 1792684020546
+      }
+    ],
+    "4.3 Implement irreversible action tools in `agent/tools.py`": [
+      {
+        "executionId": "0c31787e-a2d0-4802-bc3e-01807ff7335c",
+        "chatSessionId": "sess_a1aab051-b506-4737-8fe4-e59204ab147e",
+        "timestamp": 1792600556216
+      },
+      {
+        "executionId": "8f11bd30-5764-4aca-97e8-fe03a3e3f310",
+        "chatSessionId": "sess_a1aab051-b506-4737-8fe4-e59204ab147e",
+        "timestamp": 1792684020946
+      },
+      {
+        "executionId": "8f11bd30-5764-4aca-97e8-fe03a3e3f310",
+        "chatSessionId": "sess_a1aab051-b506-4737-8fe4-e59204ab147e",
+        "timestamp": 1792684065056
+      }
+    ],
+    "5.1 Implement `ShippingActionGuard` in `agent/decision.py`": [
+      {
+        "executionId": "0c31787e-a2d0-4802-bc3e-01807ff7335c",
+        "chatSessionId": "sess_a1aab051-b506-4737-8fe4-e59204ab147e",
+        "timestamp": 1792600556276
+      },
+      {
+        "executionId": "8f11bd30-5764-4aca-97e8-fe03a3e3f310",
+        "chatSessionId": "sess_a1aab051-b506-4737-8fe4-e59204ab147e",
+        "timestamp": 1792683486278
+      },
+      {
+        "executionId": "8f11bd30-5764-4aca-97e8-fe03a3e3f310",
+        "chatSessionId": "sess_a1aab051-b506-4737-8fe4-e59204ab147e",
+        "timestamp": 1792684065489
+      }
+    ],
+    "6.1 Implement `ShippingTrackingAgent` in `agent/agent.py`": [
+      {
+        "executionId": "0c31787e-a2d0-4802-bc3e-01807ff7335c",
+        "chatSessionId": "sess_a1aab051-b506-4737-8fe4-e59204ab147e",
+        "timestamp": 1792600556338
+      },
+      {
+        "executionId": "2bbc638c-7ae2-484f-92db-55786098416f",
+        "chatSessionId": "sess_a1aab051-b506-4737-8fe4-e59204ab147e",
+        "timestamp": 1792688760240
+      },
+      {
+        "executionId": "2bbc638c-7ae2-484f-92db-55786098416f",
+        "chatSessionId": "sess_a1aab051-b506-4737-8fe4-e59204ab147e",
+        "timestamp": 1792689268344
+      }
+    ],
+    "6.2 Add `RoutingDecision` serialisation to the `decisions` field": [
+      {
+        "executionId": "0c31787e-a2d0-4802-bc3e-01807ff7335c",
+        "chatSessionId": "sess_a1aab051-b506-4737-8fe4-e59204ab147e",
+        "timestamp": 1792600556400
+      },
+      {
+        "executionId": "2bbc638c-7ae2-484f-92db-55786098416f",
+        "chatSessionId": "sess_a1aab051-b506-4737-8fe4-e59204ab147e",
+        "timestamp": 1792688760890
+      },
+      {
+        "executionId": "2bbc638c-7ae2-484f-92db-55786098416f",
+        "chatSessionId": "sess_a1aab051-b506-4737-8fe4-e59204ab147e",
+        "timestamp": 1792689269097
+      }
+    ],
+    "7. Checkpoint — ensure agent and routing tests pass": [
+      {
+        "executionId": "0c31787e-a2d0-4802-bc3e-01807ff7335c",
+        "chatSessionId": "sess_a1aab051-b506-4737-8fe4-e59204ab147e",
+        "timestamp": 1792600556461
+      },
+      {
+        "executionId": "2bbc638c-7ae2-484f-92db-55786098416f",
+        "chatSessionId": "sess_a1aab051-b506-4737-8fe4-e59204ab147e",
+        "timestamp": 1792689303688
+      },
+      {
+        "executionId": "2bbc638c-7ae2-484f-92db-55786098416f",
+        "chatSessionId": "sess_a1aab051-b506-4737-8fe4-e59204ab147e",
+        "timestamp": 1792689369260
+      }
+    ],
+    "8.1 Add `HackathonAgent` alias and update `agent/__init__.py`": [
+      {
+        "executionId": "0c31787e-a2d0-4802-bc3e-01807ff7335c",
+        "chatSessionId": "sess_a1aab051-b506-4737-8fe4-e59204ab147e",
+        "timestamp": 1792600556537
+      },
+      {
+        "executionId": "2bbc638c-7ae2-484f-92db-55786098416f",
+        "chatSessionId": "sess_a1aab051-b506-4737-8fe4-e59204ab147e",
+        "timestamp": 1792688810775
+      },
+      {
+        "executionId": "2bbc638c-7ae2-484f-92db-55786098416f",
+        "chatSessionId": "sess_a1aab051-b506-4737-8fe4-e59204ab147e",
+        "timestamp": 1792689280589
+      }
+    ],
+    "8.2 Update system prompt and demo script": [
+      {
+        "executionId": "0c31787e-a2d0-4802-bc3e-01807ff7335c",
+        "chatSessionId": "sess_a1aab051-b506-4737-8fe4-e59204ab147e",
+        "timestamp": 1792600556603
+      },
+      {
+        "executionId": "2bbc638c-7ae2-484f-92db-55786098416f",
+        "chatSessionId": "sess_a1aab051-b506-4737-8fe4-e59204ab147e",
+        "timestamp": 1792688810922
+      },
+      {
+        "executionId": "2bbc638c-7ae2-484f-92db-55786098416f",
+        "chatSessionId": "sess_a1aab051-b506-4737-8fe4-e59204ab147e",
+        "timestamp": 1792689280940
+      }
+    ],
+    "9.1 Create `pytest.ini` and `conftest.py` for Hypothesis": [
+      {
+        "executionId": "0c31787e-a2d0-4802-bc3e-01807ff7335c",
+        "chatSessionId": "sess_a1aab051-b506-4737-8fe4-e59204ab147e",
+        "timestamp": 1792600556717
+      },
+      {
+        "executionId": "ccd9e9f9-58e6-411f-8e93-0999ed4093c5",
+        "chatSessionId": "sess_a1aab051-b506-4737-8fe4-e59204ab147e",
+        "timestamp": 1792680598007
+      },
+      {
+        "executionId": "ccd9e9f9-58e6-411f-8e93-0999ed4093c5",
+        "chatSessionId": "sess_a1aab051-b506-4737-8fe4-e59204ab147e",
+        "timestamp": 1792681955101
+      }
+    ],
+    "10. Final checkpoint — ensure all tests pass": [
+      {
+        "executionId": "0c31787e-a2d0-4802-bc3e-01807ff7335c",
+        "chatSessionId": "sess_a1aab051-b506-4737-8fe4-e59204ab147e",
+        "timestamp": 1792600556771
+      },
+      {
+        "executionId": "2bbc638c-7ae2-484f-92db-55786098416f",
+        "chatSessionId": "sess_a1aab051-b506-4737-8fe4-e59204ab147e",
+        "timestamp": 1792689369774
+      },
+      {
+        "executionId": "2bbc638c-7ae2-484f-92db-55786098416f",
+        "chatSessionId": "sess_a1aab051-b506-4737-8fe4-e59204ab147e",
+        "timestamp": 1792689381347
+      }
+    ],
+    "1. Create data models and carrier abstraction layer": [
+      {
+        "executionId": "ccd9e9f9-58e6-411f-8e93-0999ed4093c5",
+        "chatSessionId": "sess_a1aab051-b506-4737-8fe4-e59204ab147e",
+        "timestamp": 1792681954480
+      }
+    ],
+    "2. Implement session store and shipment cache": [
+      {
+        "executionId": "ccd9e9f9-58e6-411f-8e93-0999ed4093c5",
+        "chatSessionId": "sess_a1aab051-b506-4737-8fe4-e59204ab147e",
+        "timestamp": 1792681954739
+      }
+    ],
+    "9. Add pytest configuration and conftest": [
+      {
+        "executionId": "ccd9e9f9-58e6-411f-8e93-0999ed4093c5",
+        "chatSessionId": "sess_a1aab051-b506-4737-8fe4-e59204ab147e",
+        "timestamp": 1792681955201
+      }
+    ],
+    "1.2 Write property tests for data models": [
+      {
+        "executionId": "ccd9e9f9-58e6-411f-8e93-0999ed4093c5",
+        "chatSessionId": "sess_a1aab051-b506-4737-8fe4-e59204ab147e",
+        "timestamp": 1792681982684
+      },
+      {
+        "executionId": "8f11bd30-5764-4aca-97e8-fe03a3e3f310",
+        "chatSessionId": "sess_a1aab051-b506-4737-8fe4-e59204ab147e",
+        "timestamp": 1792683437546
+      }
+    ],
+    "1.5 Write unit tests for carrier abstraction": [
+      {
+        "executionId": "ccd9e9f9-58e6-411f-8e93-0999ed4093c5",
+        "chatSessionId": "sess_a1aab051-b506-4737-8fe4-e59204ab147e",
+        "timestamp": 1792681982921
+      },
+      {
+        "executionId": "8f11bd30-5764-4aca-97e8-fe03a3e3f310",
+        "chatSessionId": "sess_a1aab051-b506-4737-8fe4-e59204ab147e",
+        "timestamp": 1792683437792
+      }
+    ],
+    "2.2 Write property tests for `SessionStore`": [
+      {
+        "executionId": "ccd9e9f9-58e6-411f-8e93-0999ed4093c5",
+        "chatSessionId": "sess_a1aab051-b506-4737-8fe4-e59204ab147e",
+        "timestamp": 1792681983573
+      },
+      {
+        "executionId": "8f11bd30-5764-4aca-97e8-fe03a3e3f310",
+        "chatSessionId": "sess_a1aab051-b506-4737-8fe4-e59204ab147e",
+        "timestamp": 1792683437920
+      }
+    ],
+    "4. Implement Strands tools": [
+      {
+        "executionId": "8f11bd30-5764-4aca-97e8-fe03a3e3f310",
+        "chatSessionId": "sess_a1aab051-b506-4737-8fe4-e59204ab147e",
+        "timestamp": 1792684065183
+      }
+    ],
+    "5. Implement `ShippingActionGuard` intervention handler": [
+      {
+        "executionId": "8f11bd30-5764-4aca-97e8-fe03a3e3f310",
+        "chatSessionId": "sess_a1aab051-b506-4737-8fe4-e59204ab147e",
+        "timestamp": 1792684065610
+      }
+    ],
+    "4.4 Write unit tests for tools": [
+      {
+        "executionId": "8f11bd30-5764-4aca-97e8-fe03a3e3f310",
+        "chatSessionId": "sess_a1aab051-b506-4737-8fe4-e59204ab147e",
+        "timestamp": 1792684066321
+      },
+      {
+        "executionId": "2bbc638c-7ae2-484f-92db-55786098416f",
+        "chatSessionId": "sess_a1aab051-b506-4737-8fe4-e59204ab147e",
+        "timestamp": 1792688754066
+      }
+    ],
+    "5.2 Write unit tests for `ShippingActionGuard`": [
+      {
+        "executionId": "8f11bd30-5764-4aca-97e8-fe03a3e3f310",
+        "chatSessionId": "sess_a1aab051-b506-4737-8fe4-e59204ab147e",
+        "timestamp": 1792684066621
+      },
+      {
+        "executionId": "2bbc638c-7ae2-484f-92db-55786098416f",
+        "chatSessionId": "sess_a1aab051-b506-4737-8fe4-e59204ab147e",
+        "timestamp": 1792688754485
+      },
+      {
+        "executionId": "2bbc638c-7ae2-484f-92db-55786098416f",
+        "chatSessionId": "sess_a1aab051-b506-4737-8fe4-e59204ab147e",
+        "timestamp": 1792688759559
+      }
+    ],
+    "6.3 Write property tests for model routing and decisions": [
+      {
+        "executionId": "2bbc638c-7ae2-484f-92db-55786098416f",
+        "chatSessionId": "sess_a1aab051-b506-4737-8fe4-e59204ab147e",
+        "timestamp": 1792688859131
+      },
+      {
+        "executionId": "2bbc638c-7ae2-484f-92db-55786098416f",
+        "chatSessionId": "sess_a1aab051-b506-4737-8fe4-e59204ab147e",
+        "timestamp": 1792689269803
+      }
+    ],
+    "6.4 Write property tests for CARRIER_API_KEY exposure": [
+      {
+        "executionId": "2bbc638c-7ae2-484f-92db-55786098416f",
+        "chatSessionId": "sess_a1aab051-b506-4737-8fe4-e59204ab147e",
+        "timestamp": 1792688859337
+      },
+      {
+        "executionId": "2bbc638c-7ae2-484f-92db-55786098416f",
+        "chatSessionId": "sess_a1aab051-b506-4737-8fe4-e59204ab147e",
+        "timestamp": 1792689270121
+      }
+    ],
+    "6. Implement `ShippingTrackingAgent` (top-level agent class)": [
+      {
+        "executionId": "2bbc638c-7ae2-484f-92db-55786098416f",
+        "chatSessionId": "sess_a1aab051-b506-4737-8fe4-e59204ab147e",
+        "timestamp": 1792689269175
+      }
+    ],
+    "8. Wire `HackathonAgent` alias and update entry points": [
+      {
+        "executionId": "2bbc638c-7ae2-484f-92db-55786098416f",
+        "chatSessionId": "sess_a1aab051-b506-4737-8fe4-e59204ab147e",
+        "timestamp": 1792689281040
+      }
+    ]
+  }
+}

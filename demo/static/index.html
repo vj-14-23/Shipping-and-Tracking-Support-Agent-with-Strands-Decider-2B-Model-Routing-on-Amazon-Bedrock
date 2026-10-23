@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Decider agent demo</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root { --bg:#0B1020; --panel:#121A2E; --line:#223052; --ink:#E7ECF6; --mute:#8D9AB5; --orange:#FF9900; --green:#34D399; --red:#F87171; --amber:#FBBF24; --blue:#60A5FA; }
+  * { box-sizing:border-box; } body { margin:0; background:var(--bg); color:var(--ink); font:15px Inter, system-ui, sans-serif; }
+  header { display:flex; align-items:center; gap:14px; padding:14px 22px; border-bottom:1px solid var(--line); }
+  header .dot { width:10px; height:10px; border-radius:50%; background:var(--orange); box-shadow:0 0 12px var(--orange); }
+  header h1 { font-size:18px; margin:0; } header .meta { color:var(--mute); font-size:13px; margin-left:auto; }
+  main { display:grid; grid-template-columns:1.1fr 1fr; gap:18px; padding:18px 22px; height:calc(100vh - 60px); }
+  .card { background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:16px; display:flex; flex-direction:column; min-height:0; }
+  .card h2 { margin:0 0 10px; font-size:14px; color:var(--mute); text-transform:uppercase; letter-spacing:.08em; }
+  #log { flex:1; overflow:auto; display:flex; flex-direction:column; gap:10px; }
+  .msg { padding:10px 13px; border-radius:12px; max-width:88%; line-height:1.45; white-space:pre-wrap; }
+  .user { align-self:flex-end; background:#1E2A47; } .bot { align-self:flex-start; background:#18243B; border:1px solid var(--line); }
+  .bot .t { color:var(--mute); font-size:12px; margin-top:6px; }
+  form { display:flex; gap:10px; margin-top:12px; } input { flex:1; background:#0F1628; color:var(--ink); border:1px solid var(--line); border-radius:10px; padding:12px; font:inherit; }
+  button { background:var(--orange); color:#111; border:0; border-radius:10px; padding:0 18px; font-weight:700; cursor:pointer; }
+  #dec { flex:1; overflow:auto; display:flex; flex-direction:column; gap:12px; }
+  .d { border:1px solid var(--line); border-radius:12px; padding:12px; background:#0F1628; animation:pop .35s ease; }
+  @keyframes pop { from { transform:scale(.97); opacity:.2; } to { transform:none; opacity:1; } }
+  .d .head { display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; font-weight:700; }
+  .tag { font:12px 'JetBrains Mono', monospace; padding:2px 9px; border-radius:99px; border:1px solid var(--line); }
+  .proceed { color:var(--green); border-color:var(--green); } .guide, .review { color:var(--amber); border-color:var(--amber); }
+  .deny, .block { color:var(--red); border-color:var(--red); } .confirm { color:var(--blue); border-color:var(--blue); }
+  .row { display:grid; grid-template-columns:150px 1fr 54px; gap:10px; align-items:center; font:13px 'JetBrains Mono', monospace; margin:5px 0; }
+  .bar { height:10px; background:#1B2540; border-radius:99px; overflow:hidden; } .bar i { display:block; height:100%; border-radius:99px; }
+  .kv { color:var(--mute); font:12px 'JetBrains Mono', monospace; margin-top:6px; word-break:break-all; }
+  .empty { color:var(--mute); } .credit { color:var(--mute); font-size:12px; margin-top:8px; }
+  .clip { display:flex; align-items:center; padding:0 12px; border:1px solid var(--line); border-radius:10px; cursor:pointer; font-size:18px; }
+  .att { display:flex; gap:8px; margin-top:10px; } .att img, .msg img { height:64px; border-radius:8px; border:1px solid var(--line); }
+  .msg img { height:120px; display:block; margin-bottom:6px; }
+</style>
+</head>
+<body>
+<header><span class="dot"></span><h1 id="name">Decider agent</h1><span class="meta" id="meta"></span></header>
+<main>
+  <section class="card"><h2>Conversation</h2><div id="log"></div>
+    <div id="att" class="att"></div>
+    <form id="f"><label class="clip" title="Attach a photo">&#128206;<input id="img" type="file" accept="image/*" multiple hidden></label><input id="m" placeholder="Type a message" autocomplete="off"><button>Send</button></form></section>
+  <section class="card"><h2>Strands Decider 2B decisions</h2><div id="dec"><p class="empty">Decisions appear here as the agent makes them.</p></div>
+    <div class="credit">Built with the AWS User Group Madurai Strands Decider hackathon kit</div></section>
+</main>
+<script>
+const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const log = document.getElementById("log"), dec = document.getElementById("dec");
+fetch("/api/info").then(r => r.json()).then(i => { document.getElementById("name").textContent = i.agent;
+  document.getElementById("meta").textContent = `LLM: ${i.llm} · Decider: ${i.decider} · ${i.target === "agentcore" ? "on AgentCore Runtime" : "local agent"}`; });
+function add(cls, html) { const d = document.createElement("div"); d.className = "msg " + cls; d.innerHTML = html; log.appendChild(d); log.scrollTop = 1e9; return d; }
+function decision(rec) {
+  if (dec.querySelector(".empty")) dec.innerHTML = "";
+  const verdict = rec.verdict || rec.action || rec.tier || "";
+  const title = rec.tool ? `before ${rec.tool}` : (rec.stage || rec.pattern || "decision");
+  const probs = Object.entries(rec).filter(([k, v]) => typeof v === "number" && v >= 0 && v <= 1 && !k.endsWith("_ms"));
+  const rest = Object.entries(rec).filter(([k, v]) => !(typeof v === "number" && v >= 0 && v <= 1) && !["verdict", "action", "tool", "stage", "pattern"].includes(k));
+  const color = (v) => v >= 0.5 ? "#34D399" : "#F87171";
+  const el = document.createElement("div"); el.className = "d";
+  el.innerHTML = `<div class="head"><span>${esc(title)} <span class="tag">${esc(rec.pattern || "")}</span></span><span class="tag ${esc(verdict)}">${esc(verdict)}</span></div>` +
+    probs.map(([k, v]) => `<div class="row"><span>${esc(k)}</span><span class="bar"><i style="width:${v * 100}%;background:${color(v)}"></i></span><span>${v.toFixed(2)}</span></div>`).join("") +
+    `<div class="kv">${rest.map(([k, v]) => `${esc(k)}: ${esc(typeof v === "object" ? JSON.stringify(v) : v)}`).join(" · ")}</div>`;
+  dec.prepend(el);
+}
+let pending = [];  // attached photos as data URLs, sent with the next message
+const att = document.getElementById("att");
+document.getElementById("img").addEventListener("change", async (e) => {
+  for (const f of e.target.files) pending.push(await new Promise((ok) => { const r = new FileReader(); r.onload = () => ok(r.result); r.readAsDataURL(f); }));
+  att.innerHTML = pending.map((u) => `<img src="${u}" alt="attached photo">`).join(""); e.target.value = "";
+});
+document.getElementById("f").addEventListener("submit", async (e) => {
+  e.preventDefault(); const m = document.getElementById("m"); const text = m.value.trim(); if (!text && !pending.length) return; m.value = "";
+  const images = pending; pending = []; att.innerHTML = "";
+  add("user", images.map((u) => `<img src="${u}" alt="photo">`).join("") + esc(text)); const wait = add("bot", "<span class='t'>thinking...</span>");
+  const r = await fetch("/api/chat", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ message: text || "(photo)", images }) });
+  const out = await r.json();
+  if (out.error) { wait.innerHTML = `<span style="color:#F87171">${esc(out.error)}</span>`; return; }
+  (out.decisions || []).forEach(decision);
+  const n = (out.decisions || []).length;
+  wait.innerHTML = esc(out.reply) + `<div class="t">${out.latency_ms} ms · ${n} decision${n === 1 ? "" : "s"}${out.served_by ? " · " + esc(out.served_by) : ""}</div>`;
+  document.body.dataset.turns = (+(document.body.dataset.turns || 0) + 1);
+});
+</script>
+</body>
+</html>

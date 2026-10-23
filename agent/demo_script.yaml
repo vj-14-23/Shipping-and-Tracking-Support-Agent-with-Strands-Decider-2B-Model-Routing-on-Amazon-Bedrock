@@ -1,0 +1,27 @@
+# Shipping & Tracking Support Agent â€” demo video script
+# Each turn is typed into the demo UI against the real deployed agent.
+# `narrate` describes what is happening; make_video.py appends the actual
+# Decider output so the narration never claims something that did not happen.
+title: "Shipping & Tracking Support Agent with Strands Decider 2B model routing"
+pitch: "A shipping support agent that routes easy questions to a fast model and complex issues to a smarter one using Strands Decider."
+features:
+  - "track shipments by tracking number or order ID in natural language"
+  - "route simple lookups to a fast model and complex issues to a capable model"
+  - "guard every irreversible action (investigation, refund, replacement, address change) with Decider 2B"
+  - "handle delivery exceptions and lost package claims"
+  - "deploy on Amazon Bedrock AgentCore Runtime"
+eager: false
+intro: "This shipping support agent runs on Amazon Bedrock. Strands Decider decides which model tier handles each question and guards every irreversible action before it runs."
+intro_normal: "This shipping support agent runs on Amazon Bedrock AgentCore Runtime. Strands Decider routes each message to the right model and guards irreversible actions."
+turns:
+  - say: "Where is my package? Tracking number TRK-20250615-001."
+    narrate: "A simple status lookup â€” the Decider should route this to the fast model."
+  - say: "It says out for delivery but it never arrived. That was three days ago."
+    narrate: "A delivery exception â€” the Decider routes this to the capable model."
+  - say: "I think it might be lost. Can you open an investigation?"
+    narrate: "The customer asks about an investigation â€” Decider checks if the request is explicit enough before allowing the irreversible tool."
+  - say: "Yes, please go ahead and start the investigation."
+    narrate: "Explicit confirmation â€” Decider should now allow the tool call to proceed."
+  - say: "Also, can I change the delivery address to 22 Park Lane, London, SW1A 2AA, UK?"
+    narrate: "An address change request â€” routed to the capable model and guarded before submission."
+outro: "One Decider call per routing decision, another per irreversible action, and Amazon Bedrock for the conversation â€” cost-efficient and safe by design."

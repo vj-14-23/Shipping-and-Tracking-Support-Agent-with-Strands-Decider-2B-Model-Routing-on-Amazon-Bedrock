@@ -1,0 +1,36 @@
+# Amazon Bedrock AgentCore features for this agent. The /new-agent interview fills this in;
+# `./kit deploy` adds what is enabled to deploy/agentcore/agentcore.json (via the AgentCore CLI)
+# and deploys it with the runtime. Use them from the agent through decider_kit/agentcore.py.
+#
+# KIT EXAMPLE: the store agent uses neither, so both are off.
+
+memory:                    # AgentCore Memory: long-term memory across sessions. Pairs with #context-memory:
+  enabled: false           # the decider picks which recalled records go in the prompt and what is worth storing.
+  name: agentmemory        # runtime env var MEMORY_AGENTMEMORY_ID (letters, digits and _ only)
+  strategies: [SEMANTIC, USER_PREFERENCE]   # also SUMMARIZATION, EPISODIC
+  expiry_days: 30
+
+gateway:                   # AgentCore Gateway: many tools behind one MCP endpoint. Pairs with #tool-selection
+  enabled: false           # (the decider picks the tool for each request) or #guardrails (it checks the call).
+  name: tools              # runtime env var AGENTCORE_GATEWAY_TOOLS_URL
+  authorizer: AWS_IAM      # AWS_IAM (the runtime's role signs calls) or NONE
+  targets:                 # each key becomes an `agentcore add gateway-target --<key> <value>` flag
+    - name: websearch
+      type: connector
+      connector: web-search                 # managed web search: no infrastructure to build
+    # - name: weather                       # an existing Lambda function as a tool
+    #   type: lambda-function-arn
+    #   lambda-arn: arn:aws:lambda:us-east-1:111122223333:function:weather
+    #   tool-schema-file: agent/gateway/weather-tools.json
+    # - name: petstore                      # a REST API from its OpenAPI schema
+    #   type: open-api-schema
+    #   schema: agent/gateway/petstore.json
+    #   outbound-auth: api-key
+    #   credential-name: petstore-key
+    # - name: docs                          # a remote MCP server
+    #   type: mcp-server
+    #   endpoint: https://example.com/mcp
+    # - name: kb                            # a Bedrock knowledge base
+    #   type: connector
+    #   connector: bedrock-knowledge-bases
+    #   knowledge-base-id: ABCDEFGHIJ

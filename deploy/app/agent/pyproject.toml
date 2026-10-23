@@ -1,0 +1,21 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "agent"
+version = "0.1.0"
+description = "Strands Decider hackathon agent on Amazon Bedrock AgentCore Runtime"
+requires-python = ">=3.10"
+dependencies = [
+    "bedrock-agentcore >= 1.18.1",
+    "strands-agents >= 1.60.0",
+    "boto3 >= 1.35.0",
+    "aws-opentelemetry-distro ~= 0.18.0",
+    "pyyaml >= 6",
+    "mcp >= 1.28.1, < 2.0.0",
+    "mcp-proxy-for-aws >= 1.1.0",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["."]

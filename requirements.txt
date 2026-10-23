@@ -1,0 +1,15 @@
+# The kit (agent, demo, benchmark, video, article). The local decider (strands-decider) is installed by make setup when you choose it.
+strands-agents[ollama,openai]>=1.60.0   # Bedrock, Ollama (local) and the user group's cloud (OpenAI chat format)
+boto3>=1.35
+bedrock-agentcore>=1.18.1
+fastapi>=0.115
+uvicorn[standard]>=0.30
+pyyaml>=6
+matplotlib>=3.8
+playwright>=1.45
+imageio-ffmpeg>=0.5
+huggingface_hub>=0.24
+pytest>=8
+httpx>=0.27
+mcp>=1.28.1,<2            # AgentCore Gateway tools (MCP)
+mcp-proxy-for-aws>=1.1.0  # signs AWS_IAM gateway calls with your AWS credentials

@@ -1,0 +1,9 @@
+Strands Decider hackathon kit
+Copyright 2026 AWS User Group Madurai and contributors
+
+This product includes software developed by the AWS User Group Madurai community
+(the decider_kit library, demo UI, video and article tooling, and Kiro steering, skills and hooks).
+
+It uses Strands Decider (https://github.com/strands-labs/strands-decider, Apache-2.0) and the
+Strands Agents SDK (https://github.com/strands-agents/sdk-python, Apache-2.0). Model weights are
+downloaded from Hugging Face under their own licences (StrandsAgents/strands-decider-2B-*, Apache-2.0).

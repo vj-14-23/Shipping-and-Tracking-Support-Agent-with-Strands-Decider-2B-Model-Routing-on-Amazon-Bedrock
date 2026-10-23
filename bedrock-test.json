@@ -1,0 +1,15 @@
+{
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Reply with: Bedrock connection successful"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 50
+  }
+}

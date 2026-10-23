@@ -1,0 +1,4 @@
+# copied in by scripts/deploy.py at deploy time
+agent/
+decider_kit/
+.venv/

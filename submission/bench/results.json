@@ -1,0 +1,230 @@
+{
+ "decider_model": "strands-decider-2b-hobson-v19",
+ "rows": [
+  {
+   "i": 0,
+   "expected": {
+    "args_grounded": "no",
+    "explicit_request": "yes"
+   },
+   "decider": {
+    "args_grounded": {
+     "label": "no",
+     "confidence": 0.7405
+    },
+    "explicit_request": {
+     "label": "yes",
+     "confidence": 0.7493
+    }
+   },
+   "decider_ms": 2887.582099996507,
+   "decider_server_ms": 2026.4,
+   "llm": {
+    "args_grounded": {
+     "label": "no",
+     "confidence": 1.0
+    },
+    "explicit_request": {
+     "label": "no",
+     "confidence": 1.0
+    }
+   },
+   "llm_ms": 2254.4049999996787,
+   "llm_cost": 0.0011992
+  },
+  {
+   "i": 1,
+   "expected": {
+    "args_grounded": "yes",
+    "explicit_request": "yes"
+   },
+   "decider": {
+    "args_grounded": {
+     "label": "yes",
+     "confidence": 0.5559
+    },
+    "explicit_request": {
+     "label": "yes",
+     "confidence": 0.804
+    }
+   },
+   "decider_ms": 2698.6706999960006,
+   "decider_server_ms": 1700.9,
+   "llm": {
+    "args_grounded": {
+     "label": "yes",
+     "confidence": 1.0
+    },
+    "explicit_request": {
+     "label": "yes",
+     "confidence": 1.0
+    }
+   },
+   "llm_ms": 2010.0722999995924,
+   "llm_cost": 0.0010048000000000001
+  },
+  {
+   "i": 2,
+   "expected": {
+    "args_grounded": "no",
+    "explicit_request": "no"
+   },
+   "decider": {
+    "args_grounded": {
+     "label": "no",
+     "confidence": 0.5721
+    },
+    "explicit_request": {
+     "label": "no",
+     "confidence": 0.6843
+    }
+   },
+   "decider_ms": 2753.004099999089,
+   "decider_server_ms": 2066.4,
+   "llm": {
+    "args_grounded": {
+     "label": "no",
+     "confidence": 1.0
+    },
+    "explicit_request": {
+     "label": "no",
+     "confidence": 1.0
+    }
+   },
+   "llm_ms": 2270.330200000899,
+   "llm_cost": 0.0012376000000000002
+  },
+  {
+   "i": 3,
+   "expected": {
+    "args_grounded": "no",
+    "explicit_request": "yes"
+   },
+   "decider": {
+    "args_grounded": {
+     "label": "no",
+     "confidence": 0.6905
+    },
+    "explicit_request": {
+     "label": "yes",
+     "confidence": 0.8059
+    }
+   },
+   "decider_ms": 2536.877899998217,
+   "decider_server_ms": 1780.1,
+   "llm": {
+    "args_grounded": {
+     "label": "no",
+     "confidence": 1.0
+    },
+    "explicit_request": {
+     "label": "yes",
+     "confidence": 1.0
+    }
+   },
+   "llm_ms": 2403.462900001614,
+   "llm_cost": 0.001224
+  },
+  {
+   "i": 4,
+   "expected": {
+    "args_grounded": "no",
+    "explicit_request": "no"
+   },
+   "decider": {
+    "args_grounded": {
+     "label": "no",
+     "confidence": 0.7232
+    },
+    "explicit_request": {
+     "label": "no",
+     "confidence": 0.6372
+    }
+   },
+   "decider_ms": 2564.7305000020424,
+   "decider_server_ms": 1935.8,
+   "llm": {
+    "args_grounded": {
+     "label": "no",
+     "confidence": 1.0
+    },
+    "explicit_request": {
+     "label": "no",
+     "confidence": 1.0
+    }
+   },
+   "llm_ms": 2271.0344000006444,
+   "llm_cost": 0.0011416
+  },
+  {
+   "i": 5,
+   "expected": {
+    "args_grounded": "no",
+    "explicit_request": "yes"
+   },
+   "decider": {
+    "args_grounded": {
+     "label": "no",
+     "confidence": 0.666
+    },
+    "explicit_request": {
+     "label": "yes",
+     "confidence": 0.906
+    }
+   },
+   "decider_ms": 2356.2009999950533,
+   "decider_server_ms": 1663.2,
+   "llm": {
+    "args_grounded": {
+     "label": "no",
+     "confidence": 1.0
+    },
+    "explicit_request": {
+     "label": "yes",
+     "confidence": 1.0
+    }
+   },
+   "llm_ms": 2203.9523999992525,
+   "llm_cost": 0.0010464
+  }
+ ],
+ "summary": {
+  "decider": {
+   "accuracy": 1.0,
+   "decisions": 12,
+   "per_question": {
+    "args_grounded": 1.0,
+    "explicit_request": 1.0
+   },
+   "latency_p50_ms": 2698.7,
+   "latency_p95_ms": 2887.6,
+   "usd_per_1k_decisions": 0.035,
+   "confident_share": 0.5,
+   "accuracy_when_confident": 1.0,
+   "sent_to_human_at_threshold": 6
+  },
+  "llm": {
+   "accuracy": 0.9167,
+   "decisions": 12,
+   "per_question": {
+    "args_grounded": 1.0,
+    "explicit_request": 0.8333
+   },
+   "latency_p50_ms": 2270.3,
+   "latency_p95_ms": 2403.5,
+   "usd_per_1k_decisions": 0.5711,
+   "confident_share": 1.0,
+   "accuracy_when_confident": 0.9167,
+   "sent_to_human_at_threshold": 0
+  },
+  "speedup_p50": 0.84
+ },
+ "threshold": 0.7,
+ "llm_model": "us.amazon.nova-pro-v1:0",
+ "llm_provider": "bedrock",
+ "llm_where": "Amazon Bedrock (us.amazon.nova-pro-v1:0)",
+ "decider_url": "https://da25tnxy06gjk.cloudfront.net",
+ "decider_mode": "ugmdu",
+ "ran_at": 1792697689.873161,
+ "split": "test"
+}

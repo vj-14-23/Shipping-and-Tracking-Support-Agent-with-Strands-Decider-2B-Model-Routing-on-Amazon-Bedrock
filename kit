@@ -1,0 +1,13 @@
+#!/bin/sh
+# The kit's commands on macOS and Linux: ./kit help   (Windows: .\kit help)
+cd "$(dirname "$0")" || exit 1
+for p in .venv/bin/python python3.13 python3.12 python3.11 python3.10 python3; do
+  if command -v "$p" >/dev/null 2>&1 && "$p" -c 'import sys; sys.exit(not (3,10) <= sys.version_info[:2] <= (3,13))' 2>/dev/null; then
+    exec "$p" scripts/kit.py "$@"
+  fi
+done
+for u in uv "$HOME/.local/bin/uv" "$HOME/.cargo/bin/uv"; do
+  if command -v "$u" >/dev/null 2>&1; then exec "$u" run --no-project --python 3.12 python scripts/kit.py "$@"; fi
+done
+echo "Python 3.10 to 3.13 is needed. Run the install command from docs/GETTING-STARTED.md first." >&2
+exit 1

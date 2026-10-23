@@ -1,0 +1,172 @@
+[
+ {
+  "start": 1.9515113830566406,
+  "end": 20.097487211227417,
+  "out": {
+   "reply": "The carrier API is currently unavailable, and I'm unable to check the status of your package at the moment. Please try again in 15 minutes. I apologize for any inconvenience this may cause.",
+   "decisions": [
+    {
+     "query_category": "simple",
+     "confidence": 0.657,
+     "selected_model_id": "us.amazon.nova-micro-v1:0",
+     "latency_ms": 1727,
+     "stage": "model_routing",
+     "tier": "small",
+     "reason": "small is enough (0.66)"
+    },
+    {
+     "query_category": "complex",
+     "confidence": 0.901,
+     "selected_model_id": "#model-routing",
+     "latency_ms": 1561,
+     "stage": "input",
+     "verdict": "proceed",
+     "tool": ""
+    }
+   ],
+   "model_id": "us.amazon.nova-micro-v1:0",
+   "latency_ms": 3672,
+   "agent": "Shipping & Tracking Support Agent",
+   "tier": "small",
+   "served_by": "Amazon Bedrock AgentCore Runtime"
+  },
+  "say": "Where is my package? Tracking number TRK-20250615-001.",
+  "narrate": "A simple status lookup \u00e2\u20ac\u201d the Decider should route this to the fast model."
+ },
+ {
+  "start": 20.097492218017578,
+  "end": 29.828779220581055,
+  "out": {
+   "reply": "Thank you for the update. Once the carrier API becomes available, I will open a lost-package investigation for your shipment with tracking number TRK-20250615-001. Please try checking the status again in 15 minutes. If the issue persists, please let me know, and I will assist you further.",
+   "decisions": [
+    {
+     "query_category": "complex",
+     "confidence": 0.596,
+     "selected_model_id": "us.amazon.nova-pro-v1:0",
+     "latency_ms": 1725,
+     "stage": "model_routing",
+     "tier": "large",
+     "reason": "unsure (0.60); quality first"
+    },
+    {
+     "query_category": "complex",
+     "confidence": 0.828,
+     "selected_model_id": "#model-routing",
+     "latency_ms": 1617,
+     "stage": "input",
+     "verdict": "proceed",
+     "tool": ""
+    }
+   ],
+   "model_id": "us.amazon.nova-pro-v1:0",
+   "latency_ms": 3211,
+   "agent": "Shipping & Tracking Support Agent",
+   "tier": "large",
+   "served_by": "Amazon Bedrock AgentCore Runtime"
+  },
+  "say": "It says out for delivery but it never arrived. That was three days ago.",
+  "narrate": "A delivery exception \u00e2\u20ac\u201d the Decider routes this to the capable model."
+ },
+ {
+  "start": 29.82878279685974,
+  "end": 38.8274405002594,
+  "out": {
+   "reply": "I'm sorry for the inconvenience, but the carrier API is currently unavailable, and I'm unable to open a lost-package investigation at the moment. Please try again in 15 minutes. If the issue persists, please let me know, and I will assist you further.",
+   "decisions": [
+    {
+     "query_category": "complex",
+     "confidence": 0.622,
+     "selected_model_id": "us.amazon.nova-pro-v1:0",
+     "latency_ms": 1617,
+     "stage": "model_routing",
+     "tier": "large",
+     "reason": "unsure (0.62); quality first"
+    },
+    {
+     "query_category": "complex",
+     "confidence": 0.84,
+     "selected_model_id": "#model-routing",
+     "latency_ms": 1615,
+     "stage": "input",
+     "verdict": "proceed",
+     "tool": ""
+    }
+   ],
+   "model_id": "us.amazon.nova-pro-v1:0",
+   "latency_ms": 3150,
+   "agent": "Shipping & Tracking Support Agent",
+   "tier": "large",
+   "served_by": "Amazon Bedrock AgentCore Runtime"
+  },
+  "say": "I think it might be lost. Can you open an investigation?",
+  "narrate": "The customer asks about an investigation \u00e2\u20ac\u201d Decider checks if the request is explicit enough before allowing the irreversible tool."
+ },
+ {
+  "start": 38.827444553375244,
+  "end": 48.12735056877136,
+  "out": {
+   "reply": "I'm sorry for the inconvenience, but the carrier API is currently unavailable, and I'm unable to open a lost-package investigation at the moment. Please try again in 15 minutes. If the issue persists, please let me know, and I will assist you further. Once the API becomes available, I will open the investigation for your shipment with tracking number TRK-20250615-001.",
+   "decisions": [
+    {
+     "query_category": "simple",
+     "confidence": 0.659,
+     "selected_model_id": "us.amazon.nova-micro-v1:0",
+     "latency_ms": 1588,
+     "stage": "model_routing",
+     "tier": "small",
+     "reason": "small is enough (0.66)"
+    },
+    {
+     "query_category": "complex",
+     "confidence": 0.618,
+     "selected_model_id": "#model-routing",
+     "latency_ms": 1604,
+     "stage": "input",
+     "verdict": "proceed",
+     "tool": ""
+    }
+   ],
+   "model_id": "us.amazon.nova-micro-v1:0",
+   "latency_ms": 3496,
+   "agent": "Shipping & Tracking Support Agent",
+   "tier": "small",
+   "served_by": "Amazon Bedrock AgentCore Runtime"
+  },
+  "say": "Yes, please go ahead and start the investigation.",
+  "narrate": "Explicit confirmation \u00e2\u20ac\u201d Decider should now allow the tool call to proceed."
+ },
+ {
+  "start": 48.12735390663147,
+  "end": 58.25913763046265,
+  "out": {
+   "reply": "I'm sorry for the inconvenience, but the carrier API is currently unavailable, and I'm unable to change the delivery address at the moment. Please try again in 15 minutes. If the issue persists, please let me know, and I will assist you further. Once the API becomes available, I will process your request to change the delivery address to 22 Park Lane, London, SW1A 2AA, UK.",
+   "decisions": [
+    {
+     "query_category": "complex",
+     "confidence": 0.567,
+     "selected_model_id": "us.amazon.nova-pro-v1:0",
+     "latency_ms": 1674,
+     "stage": "model_routing",
+     "tier": "large",
+     "reason": "unsure (0.57); quality first"
+    },
+    {
+     "query_category": "complex",
+     "confidence": 0.737,
+     "selected_model_id": "#model-routing",
+     "latency_ms": 1695,
+     "stage": "input",
+     "verdict": "proceed",
+     "tool": ""
+    }
+   ],
+   "model_id": "us.amazon.nova-pro-v1:0",
+   "latency_ms": 3392,
+   "agent": "Shipping & Tracking Support Agent",
+   "tier": "large",
+   "served_by": "Amazon Bedrock AgentCore Runtime"
+  },
+  "say": "Also, can I change the delivery address to 22 Park Lane, London, SW1A 2AA, UK?",
+  "narrate": "An address change request \u00e2\u20ac\u201d routed to the capable model and guarded before submission."
+ }
+]
